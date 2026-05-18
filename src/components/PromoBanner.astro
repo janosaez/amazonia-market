@@ -1,0 +1,29 @@
+---
+---
+<div class="am-promo-banner">
+  <div class="am-promo-inner">
+    <div class="am-promo-text">
+      <h2>🔥 Oferta de temporada</h2>
+      <p>Descuentos de hasta 40% en productos seleccionados. Tiempo limitado.</p>
+    </div>
+    <div class="am-countdown">
+      <div class="am-countdown-unit"><div class="am-countdown-num" id="amCdH">08</div><div class="am-countdown-lbl">Horas</div></div>
+      <div class="am-countdown-unit"><div class="am-countdown-num" id="amCdM">45</div><div class="am-countdown-lbl">Min</div></div>
+      <div class="am-countdown-unit"><div class="am-countdown-num" id="amCdS">30</div><div class="am-countdown-lbl">Seg</div></div>
+    </div>
+    <button class="am-btn-promo" onclick="document.getElementById('productos')?.scrollIntoView({behavior:'smooth'})">Ver ofertas →</button>
+  </div>
+</div>
+
+<script>
+  let h = 8, m = 45, s = 30;
+  const hEl = document.getElementById('amCdH');
+  const mEl = document.getElementById('amCdM');
+  const sEl = document.getElementById('amCdS');
+  setInterval(() => {
+    if (--s < 0) { s = 59; if (--m < 0) { m = 59; if (--h < 0) h = 23; } }
+    if (hEl) hEl.textContent = String(h).padStart(2,'0');
+    if (mEl) mEl.textContent = String(m).padStart(2,'0');
+    if (sEl) sEl.textContent = String(s).padStart(2,'0');
+  }, 1000);
+</script>

@@ -1,0 +1,30 @@
+---
+const reviews = [
+  { stars:"★★★★★", text:"El camu camu que compré llegó perfectamente empacado y fresco. Se nota que el producto es directo del productor. Ahora compro cada mes sin falta.", av:"👩", g:"am-av1", name:"María Quispe",   city:"Lima, Lima" },
+  { stars:"★★★★★", text:"Las artesanías shipibo que compré son increíbles. La calidad es impresionante y saber que apoyo directamente a los artesanos hace la diferencia total.", av:"👨", g:"am-av2", name:"Carlos Mendoza", city:"Arequipa, Arequipa" },
+  { stars:"★★★★★", text:"Descubrí el sacha inchi gracias a este marketplace. El servicio al cliente es excelente, respondieron mis dudas rapidísimo y el envío llegó en tiempo récord.", av:"👩", g:"am-av3", name:"Ana Torres",     city:"Trujillo, La Libertad" },
+];
+---
+<section class="am-testimonials">
+  <div class="am-container">
+    <div class="am-section-header">
+      <span class="am-section-tag">Opiniones</span>
+      <h2 class="am-section-title">Lo que dicen <span>nuestros clientes</span></h2>
+    </div>
+    <div class="am-testimonials-grid">
+      {reviews.map(r => (
+        <div class="am-testimonial-card am-fade">
+          <div class="am-testimonial-stars">{r.stars}</div>
+          <p class="am-testimonial-text">"{r.text}"</p>
+          <div class="am-testimonial-author">
+            <div class={`am-author-avatar ${r.g}`}>{r.av}</div>
+            <div>
+              <div class="am-author-name">{r.name}</div>
+              <div class="am-author-city">{r.city}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

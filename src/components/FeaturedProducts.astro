@@ -1,0 +1,70 @@
+---
+const products = [
+  { img: "/productos/chiflesalado.jpg",          name: "Chifle Salado",            dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★★", reviews: 214, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
+  { img: "/productos/chiflepicante.jpg",          name: "Chifle Picante",           dept: "Amazonia, Perú",      badge: "nuevo",  badgeText: "Nuevo",  stars: "★★★★★", reviews: 189, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
+  { img: "/productos/chifledulce.jpg",            name: "Chifle Dulce",             dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★☆", reviews:  97, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
+  { img: "/productos/chiflesaborchorizo.jpg",     name: "Chifle Sabor Chorizo",     dept: "Amazonia, Perú",      badge: "oferta", badgeText: "-15%",   stars: "★★★★★", reviews: 143, price: "S/ 7.50",  oldPrice: "S/ 8.80", cat: "snacks"     },
+  { img: "/productos/chiflesaborceviche.jpg",     name: "Chifle Sabor Ceviche",     dept: "Amazonia, Perú",      badge: "nuevo",  badgeText: "Nuevo",  stars: "★★★★★", reviews: 176, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
+  { img: "/productos/yucassaladas.jpg",           name: "Yucas Fritas Saladas",     dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★★", reviews: 203, price: "S/ 9.00",  oldPrice: "",         cat: "snacks"     },
+  { img: "/productos/manifritosalado.jpg",        name: "Maní Frito Salado",        dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★☆", reviews:  88, price: "S/ 7.00",  oldPrice: "",         cat: "naturales"  },
+  { img: "/productos/manifritoconpasas.jpg",      name: "Maní Frito con Pasas",     dept: "Amazonia, Perú",      badge: "oferta", badgeText: "-10%",   stars: "★★★★★", reviews: 112, price: "S/ 7.50",  oldPrice: "S/ 8.30", cat: "naturales"  },
+  { img: "/productos/maizcuzcofritosalado.jpg",   name: "Maíz Cuzco Frito Salado",  dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★★", reviews: 156, price: "S/ 8.00",  oldPrice: "",         cat: "naturales"  },
+  { img: "/productos/habasfritassaladas.jpg",     name: "Habas Fritas Saladas",     dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★☆", reviews:  74, price: "S/ 7.00",  oldPrice: "",         cat: "naturales"  },
+  { img: "/productos/bizcotela.jpg",              name: "Bizcotela Amazónica",      dept: "Amazonia, Perú",      badge: "nuevo",  badgeText: "Nuevo",  stars: "★★★★★", reviews:  62, price: "S/ 6.50",  oldPrice: "",         cat: "naturales"  },
+];
+---
+<section class="am-section am-featured" id="productos">
+  <div class="am-container">
+    <div class="am-section-header">
+      <span class="am-section-tag">Destacados</span>
+      <h2 class="am-section-title">Productos <span>más vendidos</span></h2>
+      <p class="am-section-desc">Snacks y delicias auténticas de la Amazonia peruana, elaboradas con ingredientes 100% naturales.</p>
+    </div>
+
+    <div class="am-products-tabs">
+      <button class="am-tab-btn active" data-filter="todos">Todos</button>
+      <button class="am-tab-btn" data-filter="snacks">Chifles & Snacks</button>
+      <button class="am-tab-btn" data-filter="naturales">Naturales</button>
+    </div>
+
+    <div class="am-products-grid">
+      {products.map(p => (
+        <div class="am-product-card am-fade" data-cat={p.cat}>
+          <div class="am-product-img">
+            {p.badgeText && <span class={`am-product-badge ${p.badge}`}>{p.badgeText}</span>}
+            <button class="am-product-fav" onclick="(window as any).toggleAmFav(this)">🤍</button>
+            <img src={p.img} alt={p.name} loading="lazy" />
+          </div>
+          <div class="am-product-info">
+            <div class="am-product-dept">{p.dept}</div>
+            <div class="am-product-name">{p.name}</div>
+            <div class="am-product-stars">
+              <span class="am-stars">{p.stars}</span>
+              <span class="am-reviews">({p.reviews})</span>
+            </div>
+            <div class="am-product-footer">
+              <div class="am-product-price">
+                {p.oldPrice && <span class="am-price-old">{p.oldPrice}</span>}
+                <span class="am-price-main">{p.price}</span>
+              </div>
+              <button class="am-btn-cart" onclick={`(window as any).addToAmCart('${p.name}')`}>+ Añadir</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.am-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.am-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = (btn as HTMLElement).dataset.filter ?? 'todos';
+      document.querySelectorAll<HTMLElement>('.am-product-card').forEach(card => {
+        card.style.display = (filter === 'todos' || card.dataset.cat === filter) ? 'block' : 'none';
+      });
+    });
+  });
+</script>

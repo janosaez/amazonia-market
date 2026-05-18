@@ -1,0 +1,42 @@
+---
+---
+<nav class="am-navbar" id="amNavbar">
+  <a href="/" class="am-nav-logo">
+    <img src="/logo.svg" alt="Amazonia Market" class="am-nav-logo-img" />
+  </a>
+  <ul class="am-nav-links">
+    <li><a href="#categorias">Categorías</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#departamentos">Departamentos</a></li>
+    <li><a href="#app">App</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="am-nav-actions">
+    <div class="am-cart-badge">
+      <button class="am-cart-btn">🛒</button>
+      <div class="am-cart-count" id="amCartCount">0</div>
+    </div>
+    <button class="am-btn-nav-outline">Ingresar</button>
+    <button class="am-btn-nav-primary">Registrarse</button>
+  </div>
+  <div class="am-hamburger" id="amHamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="am-mobile-menu" id="amMobileMenu">
+  <a href="#categorias">Categorías</a>
+  <a href="#productos">Productos</a>
+  <a href="#departamentos">Departamentos</a>
+  <a href="#app">App</a>
+  <a href="#contacto">Contacto</a>
+</div>
+
+<script>
+  const navbar = document.getElementById('amNavbar');
+  window.addEventListener('scroll', () => navbar?.classList.toggle('scrolled', window.scrollY > 60));
+
+  const menu = document.getElementById('amMobileMenu');
+  document.getElementById('amHamburger')?.addEventListener('click', () => menu?.classList.toggle('open'));
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>

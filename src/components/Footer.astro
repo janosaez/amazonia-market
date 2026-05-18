@@ -1,0 +1,47 @@
+---
+const nav = {
+  Marketplace: ["Todos los productos","Categorías","Ofertas del día","Nuevos ingresos","Más vendidos"],
+  Vendedores:  ["Vende con nosotros","Centro del vendedor","Guía de publicación","Tarifas","Soporte"],
+  Ayuda:       ["Centro de ayuda","Mis pedidos","Devoluciones","Contáctanos","Términos y condiciones"],
+};
+---
+<footer class="am-footer">
+  <div class="am-footer-inner">
+    <div class="am-footer-brand">
+      <img src="/logo.svg" alt="Amazonia Market" class="am-footer-logo" />
+      <p>Conectando la riqueza de la Amazonia peruana con todo el país. Cuatro departamentos, miles de productos auténticos, un solo marketplace.</p>
+      <div class="am-footer-social">
+        <div class="am-social-btn">📘</div>
+        <div class="am-social-btn">📸</div>
+        <div class="am-social-btn">🐦</div>
+        <div class="am-social-btn">▶️</div>
+        <div class="am-social-btn">💬</div>
+      </div>
+    </div>
+    {Object.entries(nav).map(([title, links]) => (
+      <div class="am-footer-col">
+        <h4>{title}</h4>
+        <ul class="am-footer-links">
+          {links.map(l => <li><a href="#">{l}</a></li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="am-footer-reclamaciones">
+    <a href="#" class="am-reclamaciones-btn">
+      <div class="am-reclamaciones-icon">📋</div>
+      <div class="am-reclamaciones-text">
+        <span class="am-reclamaciones-title">Libro de Reclamaciones</span>
+        <span class="am-reclamaciones-sub">Conforme al D.S. N° 011-2011-PCM</span>
+      </div>
+    </a>
+  </div>
+  <div class="am-footer-bottom">
+    <span>© 2026 Amazonia Market S.A.C. · Hecho con 💚 en Perú</span>
+    <div class="am-footer-bottom-links">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>

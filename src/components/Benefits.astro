@@ -1,0 +1,25 @@
+---
+const items = [
+  { icon:"🚀", g:"g1", title:"Envío rápido",     desc:"Entrega express a Lima en 24-48 horas. Envíos a todo el Perú con seguimiento en tiempo real." },
+  { icon:"✅", g:"g2", title:"100% auténtico",   desc:"Cada producto pasa por un riguroso proceso de verificación de origen y calidad antes de publicarse." },
+  { icon:"🌿", g:"g3", title:"Comercio justo",   desc:"Apoyamos directamente a productores locales y comunidades indígenas de la Amazonia peruana." },
+  { icon:"🔒", g:"g4", title:"Pago seguro",      desc:"Transacciones con cifrado SSL. Aceptamos Yape, Plin, tarjetas y transferencias bancarias." },
+];
+---
+<section class="am-benefits">
+  <div class="am-container">
+    <div class="am-section-header">
+      <span class="am-section-tag">¿Por qué nosotros?</span>
+      <h2 class="am-section-title">Comprometidos con <span>tu satisfacción</span></h2>
+    </div>
+    <div class="am-benefits-grid">
+      {items.map(i => (
+        <div class="am-benefit-card am-fade">
+          <div class={`am-benefit-icon ${i.g}`}>{i.icon}</div>
+          <div class="am-benefit-title">{i.title}</div>
+          <div class="am-benefit-desc">{i.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

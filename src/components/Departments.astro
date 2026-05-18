@@ -1,0 +1,63 @@
+---
+const depts = [
+  {
+    img: "/departamentos/puerto-maldonado.jpg",
+    name: "Puerto Maldonado",
+    desc: "Capital de Madre de Dios. Conocida por su rica biodiversidad, castaña amazónica y productos del bosque. Puerta de entrada al Parque Nacional del Manu.",
+    tags: ["Castaña","Copaiba","Ecoturismo","Artesanías"],
+    products: "340+", sellers: "80+"
+  },
+  {
+    img: "/departamentos/iquitos.jpg",
+    name: "Iquitos",
+    desc: "La ciudad más grande del Perú sin acceso terrestre. Centro neurálgico de la Amazonia peruana, con la mayor diversidad de productos amazónicos del país.",
+    tags: ["Aguaje","Camu camu","Cerámica","Peces"],
+    products: "620+", sellers: "150+"
+  },
+  {
+    img: "/departamentos/tarapoto.jpg",
+    name: "Tarapoto",
+    desc: "La ciudad de las palmeras. Región San Martín, reconocida mundialmente por su café de especialidad, cacao orgánico y sacha inchi de calidad exportación.",
+    tags: ["Café","Sacha inchi","Miel","Cacao"],
+    products: "480+", sellers: "120+"
+  },
+  {
+    img: "/departamentos/pucallpa.jpg",
+    name: "Pucallpa",
+    desc: "Capital de Ucayali, a orillas del río Ucayali. Hogar de la comunidad Shipibo-Conibo, reconocida mundialmente por su arte textil.",
+    tags: ["Textiles","Madera","Cacao","Pesca"],
+    products: "390+", sellers: "100+"
+  },
+];
+---
+<section class="am-departments" id="departamentos">
+  <div class="am-container">
+    <div class="am-section-header">
+      <span class="am-section-tag">Cobertura</span>
+      <h2 class="am-section-title">Cuatro <span>departamentos</span></h2>
+      <p class="am-section-desc">Presentes en los principales departamentos amazónicos del Perú, conectando productores locales con todo el país.</p>
+    </div>
+
+    <div class="am-dept-grid">
+      {depts.map(d => (
+        <div class="am-dept-card am-fade">
+          <div class="am-dept-photo">
+            <img src={d.img} alt={d.name} loading="lazy" />
+            <div class="am-dept-photo-overlay"></div>
+          </div>
+          <div class="am-dept-body">
+            <div class="am-dept-name">{d.name}</div>
+            <div class="am-dept-desc">{d.desc}</div>
+            <div class="am-dept-tags">
+              {d.tags.map(t => <span class="am-dept-tag">{t}</span>)}
+            </div>
+            <div class="am-dept-stats">
+              <div class="am-dept-stat"><div class="am-dept-stat-num">{d.products}</div><div class="am-dept-stat-lbl">Productos</div></div>
+              <div class="am-dept-stat"><div class="am-dept-stat-num">{d.sellers}</div><div class="am-dept-stat-lbl">Vendedores</div></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

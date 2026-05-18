@@ -1,0 +1,30 @@
+---
+const cats = [
+  { emoji:"🌿", name:"Superfoods",          count:"234 productos" },
+  { emoji:"🍫", name:"Cacao & Chocolate",   count:"98 productos" },
+  { emoji:"🐟", name:"Pesca & Mar",          count:"156 productos" },
+  { emoji:"🍃", name:"Plantas medicinales",  count:"312 productos" },
+  { emoji:"🎨", name:"Artesanías",           count:"189 productos" },
+  { emoji:"🍹", name:"Bebidas & Jugos",      count:"74 productos" },
+  { emoji:"🌺", name:"Cosméticos naturales", count:"127 productos" },
+  { emoji:"🦜", name:"Ecoturismo",           count:"43 paquetes" },
+];
+---
+<section class="am-section am-categories" id="categorias">
+  <div class="am-container">
+    <div class="am-section-header">
+      <span class="am-section-tag">Explora</span>
+      <h2 class="am-section-title">Categorías <span>principales</span></h2>
+      <p class="am-section-desc">Descubre todo lo que la selva peruana tiene para ofrecerte, desde superalimentos hasta artesanías únicas.</p>
+    </div>
+    <div class="am-cat-grid">
+      {cats.map(c => (
+        <div class="am-cat-card am-fade">
+          <span class="am-cat-emoji">{c.emoji}</span>
+          <div class="am-cat-name">{c.name}</div>
+          <div class="am-cat-count">{c.count}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+---
+<section class="am-newsletter" id="contacto">
+  <div class="am-newsletter-inner">
+    <div class="am-newsletter-icon">💌</div>
+    <h2>Suscríbete y recibe<br>ofertas exclusivas</h2>
+    <p>Entérate primero de los mejores productos y descuentos especiales de la Amazonia peruana.</p>
+    <div class="am-newsletter-form">
+      <input type="email" class="am-newsletter-input" id="amEmailInput" placeholder="tu@correo.com" />
+      <button class="am-newsletter-submit" id="amSubBtn">Suscribirme gratis</button>
+    </div>
+    <p class="am-newsletter-privacy">🔒 Sin spam. Puedes darte de baja en cualquier momento.</p>
+  </div>
+</section>
+
+<script>
+  document.getElementById('amSubBtn')?.addEventListener('click', () => {
+    const input = document.getElementById('amEmailInput') as HTMLInputElement;
+    if (!input?.value?.includes('@')) {
+      (window as any).showAmToast?.('⚠️ Ingresa un correo válido');
+      return;
+    }
+    (window as any).showAmToast?.('🎉 ¡Te has suscrito con éxito!');
+    input.value = '';
+  });
+</script>

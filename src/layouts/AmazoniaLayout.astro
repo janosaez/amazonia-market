@@ -1,0 +1,70 @@
+---
+import "../styles/amazonia.css";
+const { title = "Inicio" } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Amazonia Market — Lo mejor de la selva peruana a tu puerta. Productos auténticos de Puerto Maldonado, Iquitos, Tarapoto y Pucallpa." />
+    <title>{title} — Amazonia Market</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  </head>
+  <body>
+    <slot />
+
+    <div class="am-toast" id="amToast">
+      <span id="amToastMsg">Producto añadido al carrito</span>
+    </div>
+
+    <button class="am-scroll-top" id="amScrollTop" aria-label="Volver arriba">↑</button>
+
+    <script>
+      // Scroll top
+      const scrollBtn = document.getElementById('amScrollTop');
+      window.addEventListener('scroll', () => {
+        scrollBtn?.classList.toggle('visible', window.scrollY > 400);
+      });
+      scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // Toast
+      let _toastTimer: ReturnType<typeof setTimeout>;
+      function showAmToast(msg: string) {
+        const toast = document.getElementById('amToast');
+        const msgEl = document.getElementById('amToastMsg');
+        if (!toast || !msgEl) return;
+        msgEl.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(_toastTimer);
+        _toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+      (window as any).showAmToast = showAmToast;
+
+      // Carrito
+      let _cartCount = 0;
+      function addToAmCart(name: string) {
+        _cartCount++;
+        const badge = document.getElementById('amCartCount');
+        if (badge) badge.textContent = String(_cartCount);
+        showAmToast(`✅ ${name} añadido al carrito`);
+      }
+      (window as any).addToAmCart = addToAmCart;
+
+      // Favoritos
+      function toggleAmFav(btn: HTMLButtonElement) {
+        const isFav = btn.textContent === '❤️';
+        btn.textContent = isFav ? '🤍' : '❤️';
+        showAmToast(isFav ? '💔 Eliminado de favoritos' : '❤️ Guardado en favoritos');
+      }
+      (window as any).toggleAmFav = toggleAmFav;
+
+      // Fade-in
+      const io = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.am-fade').forEach(el => io.observe(el));
+    </script>
+  </body>
+</html>

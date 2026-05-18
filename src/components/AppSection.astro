@@ -1,0 +1,48 @@
+---
+const features = ["Seguimiento de pedidos en tiempo real","Notificaciones de ofertas exclusivas","Chat directo con productores","Pago con Yape y Plin integrado","Modo offline para explorar el catálogo"];
+const phoneItems = [
+  { emoji:"🫐", name:"Camu camu polvo",    price:"S/ 18.50" },
+  { emoji:"🌰", name:"Sacha inchi tostado",price:"S/ 24.00" },
+  { emoji:"🍫", name:"Cacao nativo puro",  price:"S/ 32.00" },
+  { emoji:"🏺", name:"Cerámica shipibo",   price:"S/ 85.00" },
+  { emoji:"🍹", name:"Aguaje fresco 1L",   price:"S/ 12.00" },
+];
+---
+<section class="am-app-section" id="app">
+  <div class="am-app-inner">
+    <div>
+      <div class="am-app-tag">📱 App disponible</div>
+      <h2 class="am-app-title">Lleva la Amazonia<br>en tu <span>bolsillo</span></h2>
+      <p class="am-app-desc">Descarga nuestra app y accede a miles de productos amazónicos desde tu celular. Notificaciones de ofertas, seguimiento de pedidos y mucho más.</p>
+      <ul class="am-app-features">{features.map(f => <li>{f}</li>)}</ul>
+      <div class="am-app-btns">
+        <div class="am-app-btn">
+          <div class="am-app-btn-icon">🍎</div>
+          <div class="am-app-btn-text"><div class="am-app-btn-sub">Disponible en</div><div class="am-app-btn-main">App Store</div></div>
+        </div>
+        <div class="am-app-btn">
+          <div class="am-app-btn-icon">▶️</div>
+          <div class="am-app-btn-text"><div class="am-app-btn-sub">Disponible en</div><div class="am-app-btn-main">Google Play</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="am-app-mockup">
+      <div class="am-phone-mockup">
+        <div class="am-phone-screen">
+          <div class="am-phone-header">🌿 Amazonia Market</div>
+          <div class="am-phone-body">
+            {phoneItems.map(p => (
+              <div class="am-phone-row">
+                <div class="am-phone-emoji">{p.emoji}</div>
+                <div class="am-phone-info">
+                  <div class="am-phone-name">{p.name}</div>
+                  <div class="am-phone-price">{p.price}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

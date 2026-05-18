@@ -1,0 +1,79 @@
+---
+---
+<section class="am-hero">
+  <div class="am-hero-particles" id="amParticles"></div>
+  <div class="am-hero-content">
+
+    <div>
+      <div class="am-hero-badge">
+        <div class="am-badge-dot"></div>
+        Marketplace de la Selva Peruana
+      </div>
+      <h1 class="am-hero-title">
+        Lo mejor de la<br>
+        <span class="am-highlight">Amazonia</span><br>
+        a tu puerta
+      </h1>
+      <p class="am-hero-subtitle">
+        Productos auténticos de Puerto Maldonado, Iquitos, Tarapoto y Pucallpa.
+        Apoya a comunidades locales y descubre los sabores únicos de la selva peruana.
+      </p>
+      <div class="am-hero-ctas">
+        <button class="am-btn-primary" onclick="document.getElementById('productos')?.scrollIntoView({behavior:'smooth'})">
+          🛒 Explorar productos
+        </button>
+        <button class="am-btn-secondary" onclick="document.getElementById('departamentos')?.scrollIntoView({behavior:'smooth'})">
+          🗺️ Ver departamentos
+        </button>
+      </div>
+      <div class="am-hero-stats">
+        <div class="am-stat"><div class="am-stat-num">2.4<span>K+</span></div><div class="am-stat-label">Productos</div></div>
+        <div class="am-stat"><div class="am-stat-num">4</div><div class="am-stat-label">Departamentos</div></div>
+        <div class="am-stat"><div class="am-stat-num">98<span>%</span></div><div class="am-stat-label">Satisfacción</div></div>
+        <div class="am-stat"><div class="am-stat-num">450<span>+</span></div><div class="am-stat-label">Vendedores</div></div>
+      </div>
+    </div>
+
+    <div class="am-hero-visual">
+      <div class="am-float-card top">
+        <div class="am-float-icon green">📦</div>
+        <div class="am-float-text">
+          <div class="am-float-label">Envío express</div>
+          <div class="am-float-value">Hoy mismo</div>
+        </div>
+      </div>
+
+      <div class="am-hero-store-img">
+        <img
+          src="/departamentos/formulario.jpg"
+          alt="Tienda Amazonia Market"
+        />
+        <div class="am-hero-store-overlay">
+          <span class="am-hero-store-badge">🛒 Amazonia Market</span>
+        </div>
+      </div>
+
+      <div class="am-float-card bottom">
+        <div class="am-float-icon gold">⭐</div>
+        <div class="am-float-text">
+          <div class="am-float-label">Valoración</div>
+          <div class="am-float-value">4.9 / 5.0</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const c = document.getElementById('amParticles');
+  if (c) {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'am-particle';
+      const s = Math.random() * 60 + 20;
+      p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s;`;
+      c.appendChild(p);
+    }
+  }
+</script>
