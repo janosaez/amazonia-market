@@ -328,8 +328,8 @@ button{font-family:inherit;}
 
 /* ===== RESPONSIVE ===== */
 /* ===== LOGO REAL ===== */
-.am-nav-logo-img{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1);}
-.am-footer-logo{height:44px;width:auto;object-fit:contain;filter:brightness(0) invert(1);margin-bottom:1rem;}
+.am-nav-logo-img{height:38px;width:auto;object-fit:contain;}
+.am-footer-logo{height:44px;width:auto;object-fit:contain;margin-bottom:1rem;}
 
 /* ===== HERO STORE IMAGE ===== */
 .am-hero-store-img{
