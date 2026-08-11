@@ -42,13 +42,6 @@ const products = [
               <span class="am-stars">{p.stars}</span>
               <span class="am-reviews">({p.reviews})</span>
             </div>
-            <div class="am-product-footer">
-              <div class="am-product-price">
-                {p.oldPrice && <span class="am-price-old">{p.oldPrice}</span>}
-                <span class="am-price-main">{p.price}</span>
-              </div>
-              <button class="am-btn-cart" onclick={`(window as any).addToAmCart('${p.name}')`}>+ Añadir</button>
-            </div>
           </div>
         </div>
       ))}
