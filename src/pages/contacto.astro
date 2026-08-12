@@ -1,0 +1,37 @@
+---
+import AmazoniaLayout from "../layouts/AmazoniaLayout.astro";
+import Navbar         from "../components/Navbar.astro";
+import Footer         from "../components/Footer.astro";
+---
+<AmazoniaLayout title="Contacto">
+  <Navbar />
+
+  <section class="am-contact">
+    <div class="am-contact-card">
+      <div class="am-contact-img">
+        <img src="/departamentos/formulario.jpg" alt="Atención al cliente Amazonia Market" />
+      </div>
+      <div class="am-contact-form-side">
+        <h1 class="am-contact-title">Dinos cómo podemos<br>ayudarte</h1>
+        <form class="am-contact-form" id="amContactForm">
+          <input  type="text"  name="nombre"   placeholder="Nombre y apellido" required />
+          <input  type="email" name="correo"   placeholder="Correo"            required />
+          <input  type="tel"   name="telefono" placeholder="Teléfono" />
+          <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+          <button type="submit" class="am-contact-submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</AmazoniaLayout>
+
+<script>
+  document.getElementById('amContactForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    (window as any).showAmToast?.('✅ ¡Gracias! Te contactaremos pronto.');
+    form.reset();
+  });
+</script>
