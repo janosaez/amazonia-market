@@ -38,7 +38,7 @@ button{font-family:inherit;}
   background:rgba(13,59,30,0.96);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   padding:0 2rem;height:70px;
-  display:flex;align-items:center;justify-content:center;gap:380px;
+  display:flex;align-items:center;justify-content:center;gap:430px;
   border-bottom:1px solid rgba(78,203,113,0.15);
   transition:var(--am-t);
 }
