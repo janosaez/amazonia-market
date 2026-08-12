@@ -183,6 +183,9 @@ button{font-family:inherit;}
 .am-product-info{padding:1.2rem;}
 .am-product-dept{font-size:0.72rem;color:var(--am-verde-selva);font-weight:600;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;}
 .am-product-name{font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--am-texto);line-height:1.3;}
+.am-product-peso{display:inline-block;font-size:0.78rem;font-weight:600;color:var(--am-verde-selva);background:var(--am-gris-suave);padding:3px 12px;border-radius:50px;}
+.am-product-emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;line-height:1;z-index:0;}
+.am-product-img img{position:relative;z-index:1;}
 .am-product-stars{display:flex;align-items:center;gap:4px;margin-bottom:12px;}
 .am-stars{color:var(--am-dorado);font-size:0.85rem;}
 .am-reviews{font-size:0.75rem;color:var(--am-gris-medio);}

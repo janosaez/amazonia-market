@@ -1,47 +1,97 @@
 ---
+const tabs = [
+  { slug: "todos",       label: "Todos" },
+  { slug: "ukaw",        label: "Ukaw" },
+  { slug: "orquidea",    label: "Orquídea" },
+  { slug: "sal",         label: "Sal Amazónica" },
+  { slug: "chachita",    label: "Chachita" },
+  { slug: "oroverde",    label: "Oro Verde" },
+  { slug: "tingo",       label: "Tingo Exotic" },
+  { slug: "valles",      label: "8 Valles" },
+  { slug: "dlu",         label: "Dlu" },
+  { slug: "crocantitos", label: "Crocantitos" },
+];
+
 const products = [
-  { img: "/productos/chiflesalado.jpg",          name: "Chifle Salado",            dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★★", reviews: 214, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
-  { img: "/productos/chiflepicante.jpg",          name: "Chifle Picante",           dept: "Amazonia, Perú",      badge: "nuevo",  badgeText: "Nuevo",  stars: "★★★★★", reviews: 189, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
-  { img: "/productos/chifledulce.jpg",            name: "Chifle Dulce",             dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★☆", reviews:  97, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
-  { img: "/productos/chiflesaborchorizo.jpg",     name: "Chifle Sabor Chorizo",     dept: "Amazonia, Perú",      badge: "oferta", badgeText: "-15%",   stars: "★★★★★", reviews: 143, price: "S/ 7.50",  oldPrice: "S/ 8.80", cat: "snacks"     },
-  { img: "/productos/chiflesaborceviche.jpg",     name: "Chifle Sabor Ceviche",     dept: "Amazonia, Perú",      badge: "nuevo",  badgeText: "Nuevo",  stars: "★★★★★", reviews: 176, price: "S/ 8.50",  oldPrice: "",         cat: "snacks"     },
-  { img: "/productos/yucassaladas.jpg",           name: "Yucas Fritas Saladas",     dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★★", reviews: 203, price: "S/ 9.00",  oldPrice: "",         cat: "snacks"     },
-  { img: "/productos/manifritosalado.jpg",        name: "Maní Frito Salado",        dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★☆", reviews:  88, price: "S/ 7.00",  oldPrice: "",         cat: "naturales"  },
-  { img: "/productos/manifritoconpasas.jpg",      name: "Maní Frito con Pasas",     dept: "Amazonia, Perú",      badge: "oferta", badgeText: "-10%",   stars: "★★★★★", reviews: 112, price: "S/ 7.50",  oldPrice: "S/ 8.30", cat: "naturales"  },
-  { img: "/productos/maizcuzcofritosalado.jpg",   name: "Maíz Cuzco Frito Salado",  dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★★", reviews: 156, price: "S/ 8.00",  oldPrice: "",         cat: "naturales"  },
-  { img: "/productos/habasfritassaladas.jpg",     name: "Habas Fritas Saladas",     dept: "Amazonia, Perú",      badge: "",       badgeText: "",       stars: "★★★★☆", reviews:  74, price: "S/ 7.00",  oldPrice: "",         cat: "naturales"  },
-  { img: "/productos/bizcotela.jpg",              name: "Bizcotela Amazónica",      dept: "Amazonia, Perú",      badge: "nuevo",  badgeText: "Nuevo",  stars: "★★★★★", reviews:  62, price: "S/ 6.50",  oldPrice: "",         cat: "naturales"  },
+  { emoji: "🍫", img: "/productos/ukaw-chocolate-taza.webp",       name: "Chocolate Para Taza",             marca: "Ukaw",          peso: "100 g", cat: "ukaw" },
+  { emoji: "🍫", img: "/productos/orquidea-chocolate-taza.webp",   name: "Chocolate Para Taza Orquídea",    marca: "Orquídea",      peso: "100 g", cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/ukaw-polvo-cacao.webp",          name: "Polvo De Cacao",                  marca: "Ukaw",          peso: "200 g", cat: "ukaw" },
+  { emoji: "🧂", img: "/productos/sal-fina.webp",                  name: "Sal Fina",                        marca: "Sal Amazónica", peso: "700 g", cat: "sal" },
+  { emoji: "🧂", img: "/productos/sal-granulada.webp",             name: "Sal Granulada",                   marca: "Sal Amazónica", peso: "700 g", cat: "sal" },
+  { emoji: "🧂", img: "/productos/sal-extra-fina.webp",            name: "Sal Extra Fina",                  marca: "Sal Amazónica", peso: "700 g", cat: "sal" },
+  { emoji: "🍪", img: "/productos/chachita-rosquillas-400.webp",   name: "Rosquillas",                      marca: "Chachita",      peso: "400 g", cat: "chachita" },
+  { emoji: "🍪", img: "/productos/chachita-rosquillas-100.webp",   name: "Rosquillas",                      marca: "Chachita",      peso: "100 g", cat: "chachita" },
+  { emoji: "🍪", img: "/productos/chachita-combinado-400.webp",    name: "Combinado",                       marca: "Chachita",      peso: "400 g", cat: "chachita" },
+  { emoji: "🍪", img: "/productos/chachita-combinado-100.webp",    name: "Combinado",                       marca: "Chachita",      peso: "100 g", cat: "chachita" },
+  { emoji: "🍫", img: "/productos/orquidea-quinua.webp",           name: "Chocolate Con Quinua",            marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-pecanas.webp",          name: "Chocolate Con Pecanas",           marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-mani.webp",             name: "Chocolate Con Mani",              marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-leche.webp",            name: "Chocolate Con Leche",             marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-leche-sin-azucar.webp", name: "Chocolate Con Leche 0% Azúcar",   marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-leche-kiwicha.webp",    name: "Chocolate Con Leche Y Kiwicha",   marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-leche-coco.webp",       name: "Chocolate Con Leche Y Coco",      marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-bitter.webp",           name: "Bitter",                          marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "🍫", img: "/productos/orquidea-bitter-sin-azucar.webp",name: "Bitter 0%Azucares",               marca: "Orquídea",      peso: "90 g",  cat: "orquidea" },
+  { emoji: "☕", img: "/productos/oroverde-cafe-especial.webp",     name: "Café Especial",                   marca: "Oro Verde",     peso: "400 g", cat: "oroverde" },
+  { emoji: "🍾", img: "/productos/tingo-moka.webp",                name: "Licor Crema De Moka",             marca: "Tingo Exotic",  peso: "500 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-7-pingas.webp",            name: "Licor Afrodisiaco 7 Pingas",      marca: "Tingo Exotic",  peso: "500 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-7-raices.webp",            name: "Licor Afrodisíaco 7 Raíces",      marca: "Tingo Exotic",  peso: "500 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-cafe.webp",                name: "Licor Crema De Café",             marca: "Tingo Exotic",  peso: "500 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-camu.webp",                name: "Licor Crema De Camu",             marca: "Tingo Exotic",  peso: "500 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-chocolate-mini.webp",      name: "Licor Crema De Chocolate Mini",   marca: "Tingo Exotic",  peso: "187 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-cafe-mini.webp",           name: "Licor Crema De Café Mini",        marca: "Tingo Exotic",  peso: "187 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-camu-mini.webp",           name: "Licor Crema De Camu Mini",        marca: "Tingo Exotic",  peso: "187 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-algarrobina-mini.webp",    name: "Licor Crema De Algarrobina Mini", marca: "Tingo Exotic",  peso: "187 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/tingo-moka-mini.webp",           name: "Licor Crema De Moka Mini",        marca: "Tingo Exotic",  peso: "187 g", cat: "tingo" },
+  { emoji: "🍾", img: "/productos/valles-7-raices.webp",           name: "7 Raíces",                        marca: "8 Valles",      peso: "500 g", cat: "valles" },
+  { emoji: "🍾", img: "/productos/valles-mamadita.webp",           name: "Mamadita",                        marca: "8 Valles",      peso: "500 g", cat: "valles" },
+  { emoji: "🍾", img: "/productos/valles-uvachado.webp",           name: "Uvachado",                        marca: "8 Valles",      peso: "500 g", cat: "valles" },
+  { emoji: "🍾", img: "/productos/valles-si-la-sacas.webp",        name: "Si La Sacas Te Mato",             marca: "8 Valles",      peso: "500 g", cat: "valles" },
+  { emoji: "🍾", img: "/productos/valles-rompe-calzon.webp",       name: "Rompe Calzón",                    marca: "8 Valles",      peso: "500 g", cat: "valles" },
+  { emoji: "🍾", img: "/productos/valles-corre-que-te-enchufo.webp",name: "Corre Que Te Enchufo",           marca: "8 Valles",      peso: "500 g", cat: "valles" },
+  { emoji: "🍾", img: "/productos/valles-mananero.webp",           name: "Mañanero",                        marca: "8 Valles",      peso: "500 g", cat: "valles" },
+  { emoji: "🍪", img: "/productos/dlu-rosquitas-anis.webp",        name: "Rosquitas De Anis",               marca: "Dlu",           peso: "150 g", cat: "dlu" },
+  { emoji: "🍪", img: "/productos/dlu-mixto.webp",                 name: "Mixto",                           marca: "Dlu",           peso: "150 g", cat: "dlu" },
+  { emoji: "🍪", img: "/productos/dlu-casquito.webp",              name: "Casquito",                        marca: "Dlu",           peso: "200 g", cat: "dlu" },
+  { emoji: "🍰", img: "/productos/bizcotela.jpg",                 name: "Bizcotela",                        marca: "Dlu",           peso: "100 g", cat: "dlu" },
+  { emoji: "🍟", img: "/productos/yucassaladas.jpg",              name: "Yucas Saladas",                   marca: "Crocantitos",   peso: "250 g", cat: "crocantitos" },
+  { emoji: "🥜", img: "/productos/manifritosalado.jpg",           name: "Mani Frito Salado",               marca: "Crocantitos",   peso: "100 g", cat: "crocantitos" },
+  { emoji: "🥜", img: "/productos/manifritoconpasas.jpg",         name: "Mani Frito Con Pasas",            marca: "Crocantitos",   peso: "100 g", cat: "crocantitos" },
+  { emoji: "🌽", img: "/productos/maizcuzcofritosalado.jpg",      name: "Maíz Cuzco Frito Salado",         marca: "Crocantitos",   peso: "100 g", cat: "crocantitos" },
+  { emoji: "🫘", img: "/productos/habasfritassaladas.jpg",        name: "Habas Fritas Saladas",            marca: "Crocantitos",   peso: "100 g", cat: "crocantitos" },
+  { emoji: "🍌", img: "/productos/chiflesalado.jpg",              name: "Chifle Salado",                   marca: "Crocantitos",   peso: "250 g", cat: "crocantitos" },
+  { emoji: "🍌", img: "/productos/chiflesaborchorizo.jpg",        name: "Chifle Sabor Chorizo",            marca: "Crocantitos",   peso: "250 g", cat: "crocantitos" },
+  { emoji: "🍌", img: "/productos/chiflesaborceviche.jpg",        name: "Chifle Sabor Ceviche",            marca: "Crocantitos",   peso: "250 g", cat: "crocantitos" },
+  { emoji: "🍌", img: "/productos/chiflepicante.jpg",             name: "Chifle Picante",                  marca: "Crocantitos",   peso: "250 g", cat: "crocantitos" },
+  { emoji: "🍌", img: "/productos/chifledulce.jpg",               name: "Chifle Dulce",                    marca: "Crocantitos",   peso: "250 g", cat: "crocantitos" },
 ];
 ---
 <section class="am-section am-featured" id="productos">
   <div class="am-container">
     <div class="am-section-header">
       <span class="am-section-tag">Destacados</span>
-      <h2 class="am-section-title">Productos <span>más vendidos</span></h2>
-      <p class="am-section-desc">Snacks y delicias auténticas de la Amazonia peruana, elaboradas con ingredientes 100% naturales.</p>
+      <h2 class="am-section-title">Nuestros <span>productos</span></h2>
+      <p class="am-section-desc">Productos auténticos de la Amazonia peruana, elaborados por marcas locales: chocolates, licores, snacks, café, sal y más.</p>
     </div>
 
     <div class="am-products-tabs">
-      <button class="am-tab-btn active" data-filter="todos">Todos</button>
-      <button class="am-tab-btn" data-filter="snacks">Chifles & Snacks</button>
-      <button class="am-tab-btn" data-filter="naturales">Naturales</button>
+      {tabs.map((t, i) => (
+        <button class={`am-tab-btn${i === 0 ? " active" : ""}`} data-filter={t.slug}>{t.label}</button>
+      ))}
     </div>
 
     <div class="am-products-grid">
       {products.map(p => (
         <div class="am-product-card am-fade" data-cat={p.cat}>
           <div class="am-product-img">
-            {p.badgeText && <span class={`am-product-badge ${p.badge}`}>{p.badgeText}</span>}
             <button class="am-product-fav" onclick="(window as any).toggleAmFav(this)">🤍</button>
-            <img src={p.img} alt={p.name} loading="lazy" />
+            <span class="am-product-emoji">{p.emoji}</span>
+            <img src={p.img} alt={p.name} loading="lazy" onerror="this.remove()" />
           </div>
           <div class="am-product-info">
-            <div class="am-product-dept">{p.dept}</div>
+            <div class="am-product-dept">{p.marca}</div>
             <div class="am-product-name">{p.name}</div>
-            <div class="am-product-stars">
-              <span class="am-stars">{p.stars}</span>
-              <span class="am-reviews">({p.reviews})</span>
-            </div>
+            <span class="am-product-peso">⚖️ {p.peso}</span>
           </div>
         </div>
       ))}
