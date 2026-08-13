@@ -1,13 +1,16 @@
 ---
+const { showDecor = true } = Astro.props;
 const nav = {
   Marketplace: ["Todos los productos","Categorías","Ofertas del día","Nuevos ingresos","Más vendidos"],
   Vendedores:  ["Vende con nosotros","Centro del vendedor","Guía de publicación","Tarifas","Soporte"],
   Ayuda:       ["Centro de ayuda","Mis pedidos","Devoluciones","Contáctanos","Términos y condiciones"],
 };
 ---
-<div class="am-footer-decor" aria-hidden="true">
-  <img src="/decoracion-footer.png" alt="" loading="lazy" />
-</div>
+{showDecor && (
+  <div class="am-footer-decor" aria-hidden="true">
+    <img src="/decoracion-footer.png" alt="" loading="lazy" />
+  </div>
+)}
 <footer class="am-footer">
   <div class="am-footer-inner">
     <div class="am-footer-brand">
