@@ -301,6 +301,8 @@ button{font-family:inherit;}
 .am-newsletter-privacy{font-size:0.78rem;color:var(--am-gris-medio);margin-top:14px;}
 
 /* ===== FOOTER ===== */
+.am-footer-decor{width:100%;overflow:hidden;line-height:0;margin-bottom:-2px;}
+.am-footer-decor img{display:block;width:100%;height:auto;}
 .am-footer{background:var(--am-verde-oscuro);color:rgba(255,255,255,0.7);padding:4rem 2rem 2rem;}
 .am-footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
 .am-footer-brand p{font-size:0.88rem;line-height:1.7;margin:1rem 0 1.5rem;max-width:280px;}
