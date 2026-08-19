@@ -51,6 +51,9 @@ button{font-family:inherit;}
 .am-nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--am-dorado);transition:width 0.3s ease;}
 .am-nav-links a:hover{color:#fff;}
 .am-nav-links a:hover::after{width:100%;}
+.am-nav-btn-item{margin-left:0.5rem;}
+.am-nav-links a.am-btn-nav-outline{padding:7px 18px;font-size:0.82rem;}
+.am-nav-links a.am-btn-nav-outline::after{content:none;}
 .am-nav-actions{display:flex;align-items:center;gap:1rem;}
 .am-btn-nav-outline{padding:8px 20px;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;color:#fff;font-size:0.88rem;font-weight:500;transition:var(--am-t);cursor:pointer;background:transparent;}
 .am-btn-nav-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7);}
