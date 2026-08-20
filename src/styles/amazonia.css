@@ -429,6 +429,8 @@ button{font-family:inherit;}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
+  .am-navbar{gap:0;justify-content:space-between;}
+  .am-nav-logo{transform:none;}
   .am-nav-links{display:none;}
   .am-hamburger{display:flex;position:absolute;right:2rem;top:50%;transform:translateY(-50%);}
   .am-hero-content{grid-template-columns:1fr;padding-top:4rem;}
@@ -446,6 +448,11 @@ button{font-family:inherit;}
 @media(max-width:600px){
   .am-section{padding:3.5rem 1.2rem;}
   .am-footer-inner{grid-template-columns:1fr;}
+  .am-search-section{padding:1.2rem;}
+  .am-search-bar{flex-wrap:wrap;padding:10px 14px;}
+  .am-search-bar input{flex:1 1 100%;min-width:0;order:1;}
+  .am-search-icon{order:0;}
+  .am-search-btn{flex:1 1 100%;order:2;margin-top:8px;text-align:center;}
 }
 
 /* ===== CONTACT PAGE ===== */
