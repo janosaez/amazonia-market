@@ -76,6 +76,8 @@ button{font-family:inherit;}
   background:radial-gradient(ellipse at 70% 40%,rgba(45,155,82,0.25) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(240,165,0,0.15) 0%,transparent 50%),linear-gradient(160deg,#051a0c 0%,#0d3b1e 45%,#1a4a2a 100%);
   display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;
 }
+.am-hero-decor-top{position:absolute;top:70px;left:0;right:0;z-index:1;pointer-events:none;line-height:0;}
+.am-hero-decor-top img{width:100%;height:auto;display:block;}
 .am-hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
 .am-particle{position:absolute;border-radius:50%;background:rgba(78,203,113,0.15);animation:amFloat linear infinite;}
 @keyframes amFloat{0%{transform:translateY(100vh) scale(0);opacity:0;}10%{opacity:1;}90%{opacity:0.6;}100%{transform:translateY(-20vh) scale(1.2);opacity:0;}}
